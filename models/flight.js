@@ -9,10 +9,18 @@ var flightSchema = new Schema ({
     },
     flightNo: {
         type: Number,
-        required: true
-    }, 
+        required: true,
+        min: 10,
+        max: 9999
+    },
     departs: {
-        type: [Date]
+        type: Date,
+        required: true,
+        default: function (){
+            var redate = new Date();
+            redate.setFullYear(redate.getFullYear()+1)
+            return redate;
+        }
     }
 });
 
