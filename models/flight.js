@@ -22,7 +22,7 @@ var flightSchema = new Schema ({
             return redate;
         }
     },
-    desCity: {
+    desAirport: {
         type: String,
         required: true
     }
