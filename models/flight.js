@@ -24,8 +24,7 @@ var flightSchema = new Schema ({
     },
     desCity: {
         type: String,
-        required: true,
-        enum: []
+        required: true
     }
 });
 
