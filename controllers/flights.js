@@ -3,7 +3,8 @@ const Flight = require('../models/flight');
 module.exports = {
   index,
   new: newFlight,
-  create
+  create,
+  detail
 };
 
 // !this takes the output of the form and submits to the database
@@ -26,6 +27,12 @@ function create (req, res) {
       res.redirect('/flights');
     });
 }
+
+function detail(req, res) {
+    Flight.findById(req.params.id, function (err, flights){
+      res.render("flights/details", { title: "Flight Detail", flights})
+    })
+};
 
 // ! this renders the empty form 
 function newFlight(req, res) {
