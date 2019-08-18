@@ -5,9 +5,20 @@ var destSchema = new Schema({
     destAirport: {
         type: String,
         },
-        arrives: {
-            type: Date
-        }
+    arrives: {
+        type: Date
+        },
+    ticket: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket'
+    }]
+});
+
+var ticketSchema = new Schema({
+    ticket: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket'
+      }]
 });
 
 var flightSchema = new Schema({
