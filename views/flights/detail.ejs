@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+<section>
+  <div>Airline</div>
+  <div><%= flights.airline %></div>
+  <div>Flight Number</div>
+  <div><%= flights.flightNo %></div>
+  <div>Departure Date</div>
+  <div><%= flights.depart %></div>
+  <div>Departing Airport</div>
+  <div><%= flights.depAirport %></div>
+</section>
+
+<br /><br />
+
+<form
+id="add-destination-form"
+method="POST"
+action="/flights/<%= flights._id %>/destination"
+>
+  <label>Destination Airport: </label>
+  <select name="destAirport">
+    <option value="Paris">Paris</option>
+    <option value="Los Angeles">Los Angeles</option>
+    <option value="Anchorage">Anchorage</option>
+    <option value="Cuba">Cuba</option>
+    <option value="London">London</option>
+    <option value="Sydney">Sydney</option>
+  </select>
+  <!-- <input type="checkbox" name="nowShowing" checked> -->
+  <input type="submit" value="Add Destination" />
+</form>
+<div>
+    <% if (flights.destination.length) { %>
+    <% flights.destination.forEach(function(x) { %>
+      <br>
+    <%= x.destAirport %>
+    <% })}; %>
+    </div>
