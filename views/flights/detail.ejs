@@ -1,14 +1,13 @@
 <%- include('../partials/header') %>
 
 <section>
-  <div>Airline</div>
-  <div><%= flights.airline %></div>
-  <div>Flight Number</div>
-  <div><%= flights.flightNo %></div>
-  <div>Departure Date</div>
-  <div><%= flights.depart %></div>
-  <div>Departing Airport</div>
-  <div><%= flights.depAirport %></div>
+  <div>Airline: </div> <div><%= flights.airline %></div>
+  <br>
+  <div>Flight Number: </div> <div><%= flights.flightNo %></div>
+  <br>
+  <div>Departure Date: </div> <div><%= flights.depart %></div>
+  <br>
+  <div>Departing Airport: </div> <div><%= flights.depAirport %></div>
 </section>
 
 <br /><br />
@@ -28,12 +27,21 @@ action="/flights/<%= flights._id %>/destination"
     <option value="Sydney">Sydney</option>
   </select>
   <!-- <input type="checkbox" name="nowShowing" checked> -->
+  <label>Arrival Time:
+  <input type="datetime-local" name="arrives">
+  </label>
   <input type="submit" value="Add Destination" />
 </form>
-<div>
-    <% if (flights.destination.length) { %>
-    <% flights.destination.forEach(function(x) { %>
+    <div>
+      <h2>Arrival Info</h2>
+      <% if (flights.destination.length) { %>
+      <% flights.destination.forEach(function(x) { %>
       <br>
-    <%= x.destAirport %>
-    <% })}; %>
-    </div>
+      <%= x.destAirport %>
+      <%= x.arrives %>
+
+      <% })}; %>
+
+      </div>
+
+    <%- include('../partials/footer') %>

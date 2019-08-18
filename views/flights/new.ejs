@@ -13,9 +13,7 @@
   <label>Flight Number: </label>
   <input type="text" name="flightNo" />
   <label>Departs: </label>
-  <input type="date" name="departs" />
-  <!-- <label>Cast (separate actors with commas):</label>
- <input type="text" name="cast"> -->
+    <input type="datetime-local" name="departs">
   <br />
   <br />
   <label>Departure Airport: </label>
@@ -27,7 +25,6 @@
     <option value="London">London</option>
     <option value="Sydney">Sydney</option>
   </select>
-  <!-- <input type="checkbox" name="nowShowing" checked> -->
   <input type="submit" value="Add Flight" />
 </form>
 <%- include('../partials/footer') %>
