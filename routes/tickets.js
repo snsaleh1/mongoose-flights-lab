@@ -4,3 +4,7 @@ var ticketsCtrl = require('../controllers/tickets')
 
 module.exports = router;
 
+router.get('/tickets/new', ticketsCtrl.new);
+router.post('/tickets', ticketsCtrl.create);
+router.post('/flights/:id/tickets', ticketsCtrl.addToTicket);
+
