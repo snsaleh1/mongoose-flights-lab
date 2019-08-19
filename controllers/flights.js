@@ -22,10 +22,11 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
+    console.log(req.body);
     var flight = new Flight(req.body);
     flight.save(function(err) {
-        if (err) return res.redirect('/flights/new', {title: 'Add Flight'});
-        res.redirect('/flights');
+    if (err) return res.redirect('/flights/new', {title: 'Add Flight'});
+    res.redirect('/flights');
     });
 }
 
