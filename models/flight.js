@@ -35,7 +35,7 @@ var flightSchema = new Schema({
     depAirport: {
         type: String,
         required: true,
-        enum: ["AUN", "DAL", "LAX", "SEA"]
+        enum: ["Paris", "Los Angeles", "Anchorage", "Cuba", "London", "Sydney"]
     },
     destination: [destSchema],
     });

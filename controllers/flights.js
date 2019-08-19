@@ -26,7 +26,6 @@ function create(req, res) {
     flight.save(function(err) {
         if (err) return res.redirect('/flights/new', {title: 'Add Flight'});
         res.redirect('/flights');
-
     });
 }
 
