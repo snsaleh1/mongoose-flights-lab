@@ -1,31 +1,21 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
+
 var Schema = mongoose.Schema;
 
 var destSchema = new Schema({
     destAirport: {
         type: String,
-        },
+    },
     arrives: {
-        type: Date
-        },
-    ticket: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Ticket'
-    }]
-});
-
-var ticketSchema = new Schema({
-    ticket: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Ticket'
-      }]
+        type: Date,
+    }
 });
 
 var flightSchema = new Schema({
     airline: {
         type: String,
-        require: true,
-        enum: ["United", "Southwest", "Delta", "Alaska", "Virgin", "Quantas"]
+        required: true,
+        enum: ["United", "Southwest", "Delta"]
     },
     flightNo: {
         type: Number,
@@ -33,19 +23,22 @@ var flightSchema = new Schema({
         min: 10,
         max: 9999
     },
-    
-    depart: { type: Date,
+    departs: {
+        type: Date,
+        required: true,
         default: function () {
-        var redate = new Date();
-        redate.setFullYear(redate.getFullYear()+1)
-        return redate.toLocaleDateString();}
+            var redate = new Date();
+            redate.setFullYear(redate.getFullYear()+1);
+            return redate;
+        }
     },
-
-    destination: [destSchema],
     depAirport: {
         type: String,
-        require: true
-    }
-});
+        required: true,
+        enum: ["AUN", "DAL", "LAX", "SEA"]
+    },
+    destination: [destSchema],
+    });
 
-module.exports = mongoose.model("Flight", flightSchema);
+
+module.exports = mongoose.model('Flight', flightSchema);
